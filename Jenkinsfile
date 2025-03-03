@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Test API'){
             steps{
-                sh 'newman run collections/collection.json  -r cli,junit --reporter-junit-export="newman-report.xml"'
+                sh 'newman run collection.json  -r cli,junit --reporter-junit-export="newman-report.xml"'
             }
         }
     }
