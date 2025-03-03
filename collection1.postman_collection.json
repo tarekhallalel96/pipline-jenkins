@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "e19b7381-343c-4c6d-adf5-d3af3fe29349",
+		"name": "collection1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42585253"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test1\" , function () {",
+							"pm.environment.set(\"flag\",false)",
+							"pm.expect(true).to.be.true",
+							"pm.expect(true).to.be.true",
+							"pm.environment.set(\"flag\",true)",
+							"});",
+							"",
+							"(pm.environment.get(\"flag\") ? pm.test : pm.test.skip)(\"test2\" , function (){",
+							"pm.environment.set(\"flag\",false)",
+							"pm.expect(true).to.be.true",
+							"pm.expect(true).to.be.true",
+							"pm.environment.set(\"flag\",true)",
+							"",
+							"})",
+							"(pm.environment.get(\"flag\") ? pm.test : pm.test.skip)(\"test3\" , function (){",
+							"pm.environment.set(\"flag\",false)",
+							"pm.expect(true).to.be.true",
+							"pm.expect(true).to.be.true",
+							"pm.environment.set(\"flag\",true)",
+							"",
+							"})",
+							"",
+							"(pm.environment.get(\"flag\") ? pm.test : pm.test.skip)(\"test4\" , function (){",
+							"pm.environment.set(\"flag\",false)",
+							"pm.expect(true).to.be.true",
+							"pm.expect(true).to.be.true",
+							"pm.environment.set(\"flag\",true)",
+							"",
+							"})",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.google.com/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"google",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tester2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"let flag2 = pm.collectionVariables.get(\"flag2\") === \"true\";",
+							"",
+							"(flag2 ? pm.test : pm.test.skip)(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.google.com/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"google",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "flag2",
+			"value": ""
+		}
+	]
+}
