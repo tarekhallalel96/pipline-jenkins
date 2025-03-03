@@ -6,12 +6,12 @@ pipeline{
         }
     }
     stages{
-         stage('Test API'){
+         stage('Test API1'){
             steps{
                 sh 'newman --version'
             }
         }
-        stage('Test API'){
+        stage('Test API2'){
             steps{
                 sh 'newman run collection.json  -r cli,junit --reporter-junit-export="newman-report.xml"'
             }
